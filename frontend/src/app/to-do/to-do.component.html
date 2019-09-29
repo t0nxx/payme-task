@@ -1,0 +1,23 @@
+<form class="example-form">
+  <!--name ***************************************-->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" [formControl]="nameFormControl" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="nameFormControl.hasError('minlength') && !nameFormControl.hasError('required')">
+      Please enter todo name
+    </mat-error>
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      todo name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button (click)="create()" color="primary" [disabled]="!nameFormControl.valid">add</button>
+  <button class="logout" mat-raised-button color="primary" (click)="logout()">Logout</button>
+</form>
+<div class="list">
+  <mat-card *ngFor="let item of todos; let i=index">
+    <mat-card-title>
+      {{item.name}}
+    </mat-card-title>
+    <mat-checkbox [checked]="item.isDone==true" (change)="switchState($event,item.id)">isDone</mat-checkbox>
+    <button mat-raised-button color="primary" (click)="deleteTodo(item.id)">Remove</button>
+  </mat-card>
+</div>

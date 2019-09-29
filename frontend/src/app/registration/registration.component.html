@@ -1,0 +1,46 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <!--name ***************************************-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" [formControl]="nameFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="nameFormControl.hasError('minlength') && !nameFormControl.hasError('required')">
+          Please enter your name
+        </mat-error>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!--email ***************************************-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!--password *************************************-->
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="Password" [formControl]="passwordFormControl"
+          [errorStateMatcher]="matcher">
+        <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+          Password min Length is 6 characters
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="reg()" color="primary"
+      [disabled]="!emailFormControl.valid || !passwordFormControl.valid || !nameFormControl.valid">Register</button>
+    <button mat-raised-button color="primary" routerLink="/reg">Login</button>
+  </mat-card-actions>
+</mat-card>

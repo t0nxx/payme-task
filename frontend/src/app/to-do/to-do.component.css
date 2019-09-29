@@ -1,0 +1,26 @@
+.example-form {
+    position: fixed;
+    left: 40%;
+}
+
+.list {
+
+    padding-top: 60px;
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+mat-card {
+    margin: 30px;
+    padding: 30px;
+    width: 300px;
+    height: 80px;
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    margin-left: 200px;
+}
