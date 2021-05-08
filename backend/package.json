@@ -32,7 +32,7 @@
       "reflect-metadata": "^0.1.10",
       "rimraf": "^3.0.0",
       "tsconfig-paths": "^3.9.0",
-      "typeorm": "0.2.19"
+      "typeorm": "0.2.25"
    },
    "scripts": {
       "start": "node dist/main.js",
